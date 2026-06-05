@@ -1,71 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vitamin Vault</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VitaminVault</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: white;
-      text-align: center;
-      padding: 30px;
-    }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-    h1 {
-      color: #4CAF50;
-    }
+body{
+background:#0f172a;
+color:white;
+}
 
-    input {
-      padding: 10px;
-      margin: 10px;
-      border-radius: 8px;
-      border: none;
-    }
+header{
+background:#111827;
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+color:#22c55e;
+}
 
-    button {
-      padding: 10px 20px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
 
-    li {
-      list-style: none;
-      margin: 10px;
-      padding: 10px;
-      background: #222;
-      border-radius: 8px;
-    }
-  </style>
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+h2{
+margin-bottom:15px;
+}
+
+input, select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+background:#22c55e;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.vitamin{
+background:#334155;
+padding:15px;
+border-radius:12px;
+margin-top:10px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.stat{
+background:#334155;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.premium{
+background:linear-gradient(135deg,#22c55e,#15803d);
+padding:30px;
+border-radius:20px;
+margin-top:30px;
+}
+
+.premium ul{
+padding-left:20px;
+margin-top:10px;
+}
+
+.calendar{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:5px;
+margin-top:15px;
+}
+
+.day{
+background:#334155;
+padding:15px;
+text-align:center;
+border-radius:10px;
+}
+
+.complete{
+background:#22c55e;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:0.7;
+}
+</style>
 </head>
+
 <body>
 
-  <h1>💊 Vitamin Vault</h1>
-  <p>Track your vitamins every day.</p>
+<header>
+💊 VitaminVault
+</header>
 
-  <input type="text" id="vitaminName" placeholder="Enter vitamin name">
-  <button onclick="addVitamin()">Add Vitamin</button>
+<div class="container">
 
-  <ul id="vitaminList"></ul>
+<div class="card">
+<h2>Today's Dashboard</h2>
+<p>Track vitamins, supplements, and medications.</p>
+</div>
 
-  <script>
-    function addVitamin() {
-      const input = document.getElementById("vitaminName");
-      const list = document.getElementById("vitaminList");
+<div class="card">
+<h2>Add Vitamin</h2>
 
-      if (input.value.trim() !== "") {
-        const item = document.createElement("li");
-        item.textContent = input.value;
-        list.appendChild(item);
-        input.value = "";
-      }
-    }
-  </script>
+<input type="text" id="name" placeholder="Vitamin Name">
+
+<input type="text" id="dose" placeholder="Dosage">
+
+<select id="frequency">
+<option>Daily</option>
+<option>Weekly</option>
+<option>Monthly</option>
+</select>
+
+<button onclick="addVitamin()">
+Add Vitamin
+</button>
+
+<div id="vitaminList"></div>
+</div>
+
+<div class="card">
+<h2>Progress Statistics</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h1 id="totalVitamins">0</h1>
+<p>Tracked Vitamins</p>
+</div>
+
+<div class="stat">
+<h1 id="streak">1</h1>
+<p>Day Streak</p>
+</div>
+
+<div class="stat">
+<h1>100%</h1>
+<p>Consistency</p>
+</div>
+
+</div>
+</div>
+
+<div class="card">
+<h2>Progress Calendar</h2>
+
+<div class="calendar">
+<div class="day complete">1</div>
+<div class="day complete">2</div>
+<div class="day complete">3</div>
+<div class="day">4</div>
+<div class="day">5</div>
+<div class="day">6</div>
+<div class="day">7</div>
+<div class="day">8</div>
+<div class="day">9</div>
+<div class="day">10</div>
+<div class="day">11</div>
+<div class="day">12</div>
+<div class="day">13</div>
+<div class="day">14</div>
+</div>
+</div>
+
+<div class="premium">
+<h2>⭐ Premium</h2>
+
+<ul>
+<li>Unlimited Vitamin Tracking</li>
+<li>AI Scheduling Suggestions</li>
+<li>Family Accounts</li>
+<li>Bottle Photo Scanner</li>
+<li>Cloud Backup & Sync</li>
+<li>Advanced Analytics</li>
+<li>Custom Reminder Sounds</li>
+<li>Export PDF Reports</li>
+</ul>
+
+<br>
+
+<button>
+Upgrade to Premium
+</button>
+
+</div>
+
+</div>
+
+<footer>
+VitaminVault © 2026
+</footer>
+
+<script>
+
+let vitamins = [];
+
+function addVitamin(){
+
+const name =
+document.getElementById("name").value;
+
+const dose =
+document.getElementById("dose").value;
+
+const frequency =
+document.getElementById("frequency").value;
+
+if(name === "") return;
+
+vitamins.push({
+name,
+dose,
+frequency
+});
+
+render();
+
+document.getElementById("name").value="";
+document.getElementById("dose").value="";
+}
+
+function render(){
+
+const list =
+document.getElementById("vitaminList");
+
+list.innerHTML="";
+
+vitamins.forEach((vitamin,index)=>{
+
+list.innerHTML += `
+<div class="vitamin">
+<div>
+<strong>${vitamin.name}</strong><br>
+${vitamin.dose} • ${vitamin.frequency}
+</div>
+
+<button onclick="removeVitamin(${index})">
+Delete
+</button>
+</div>
+`;
+
+});
+
+document.getElementById("totalVitamins").innerText =
+vitamins.length;
+}
+
+function removeVitamin(index){
+
+vitamins.splice(index,1);
+
+render();
+}
+
+</script>
 
 </body>
 </html>
