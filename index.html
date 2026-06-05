@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitamin Vault</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+      margin: 10px;
+      padding: 10px;
+      background: #222;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💊 Vitamin Vault</h1>
+  <p>Track your vitamins every day.</p>
+
+  <input type="text" id="vitaminName" placeholder="Enter vitamin name">
+  <button onclick="addVitamin()">Add Vitamin</button>
+
+  <ul id="vitaminList"></ul>
+
+  <script>
+    function addVitamin() {
+      const input = document.getElementById("vitaminName");
+      const list = document.getElementById("vitaminList");
+
+      if (input.value.trim() !== "") {
+        const item = document.createElement("li");
+        item.textContent = input.value;
+        list.appendChild(item);
+        input.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
